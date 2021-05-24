@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2021-05-23 23:24:57
  * @LastEditors: bin
- * @LastEditTime: 2021-05-23 23:29:53
+ * @LastEditTime: 2021-05-24 10:51:27
  */
 
 /* 
@@ -40,3 +40,16 @@ var twoSum = function(nums, target) {
 我们遍历到数字 a 时，用 target 减去 a，就会得到 b，
 若 b 存在于哈希表中，我们就可以直接返回结果了。若 b 不存在，那么我们需要将 a 存入哈希表，好让后续遍历的数字使用。 
 */
+
+var twoSum = function(nums, target) {
+    const hash = new Map();
+    hash.set(nums[0], 0);
+    for (let i = 1; i < nums.length; i++) {
+        let difference = target - nums[i];
+        if (hash.has(difference)) {
+            return [i, hash.get(difference)];
+        } else {
+            has.set(nums[i], i);
+        }
+    }
+};
