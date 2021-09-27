@@ -1,9 +1,9 @@
 /*
- * @Description:
+ * @Description: 两数之和
  * @Autor: bin
  * @Date: 2021-05-23 23:24:57
- * @LastEditors: bin
- * @LastEditTime: 2021-05-24 10:51:27
+ * @LastEditors: zhaobin
+ * @LastEditTime: 2021-09-27 15:29:38
  */
 
 /* 
@@ -26,13 +26,13 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    for (let i = 0; i < nums.length; i++) {
-        let difference = target - nums[i];
-        let k = nums.lastIndexOf(difference);
-        if (k > -1 && k != i) {
-            return [i, k];
-        }
+  for (let i = 0; i < nums.length; i++) {
+    let difference = target - nums[i];
+    let k = nums.lastIndexOf(difference);
+    if (k > -1 && k != i) {
+      return [i, k];
     }
+  }
 };
 
 /* 解题思路:
@@ -42,14 +42,14 @@ var twoSum = function(nums, target) {
 */
 
 var twoSum = function(nums, target) {
-    const hash = new Map();
-    hash.set(nums[0], 0);
-    for (let i = 1; i < nums.length; i++) {
-        let difference = target - nums[i];
-        if (hash.has(difference)) {
-            return [i, hash.get(difference)];
-        } else {
-            has.set(nums[i], i);
-        }
+  const hash = new Map();
+  hash.set(nums[0], 0);
+  for (let i = 1; i < nums.length; i++) {
+    let difference = target - nums[i];
+    if (hash.has(difference)) {
+      return [i, hash.get(difference)];
+    } else {
+      has.set(nums[i], i);
     }
+  }
 };
