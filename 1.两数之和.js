@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2021-05-23 23:24:57
  * @LastEditors: zhaobin
- * @LastEditTime: 2021-09-27 15:29:38
+ * @LastEditTime: 2023-09-07 16:52:33
  */
 
 /* 
@@ -24,12 +24,13 @@
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
+ * 时间复杂度O(n^2) 空间复杂度O(1)
  */
-var twoSum = function(nums, target) {
+var twoSum = function (nums, target) {
   for (let i = 0; i < nums.length; i++) {
     let difference = target - nums[i];
-    let k = nums.lastIndexOf(difference);
-    if (k > -1 && k != i) {
+    let k = nums.indexOf(difference, i + 1);
+    if (k > -1) {
       return [i, k];
     }
   }
@@ -39,9 +40,10 @@ var twoSum = function(nums, target) {
 哈希表
 我们遍历到数字 a 时，用 target 减去 a，就会得到 b，
 若 b 存在于哈希表中，我们就可以直接返回结果了。若 b 不存在，那么我们需要将 a 存入哈希表，好让后续遍历的数字使用。 
+时间复杂度O(n) 空间复杂度O(n)
 */
 
-var twoSum = function(nums, target) {
+var twoSum = function (nums, target) {
   const hash = new Map();
   hash.set(nums[0], 0);
   for (let i = 1; i < nums.length; i++) {
