@@ -32,7 +32,7 @@ var lengthOfLongestSubstring = function (s) {
   for (let i = 0, len = s.length; i < len; i++) {
     let str = s[i],
       index = child.indexOf(str);
-    if (ind > -1) {
+    if (index > -1) {
       child = child.slice(index + 1) + str;
     } else {
       child += str;
