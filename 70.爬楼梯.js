@@ -29,6 +29,21 @@
  * @param {number} n
  * @return {number}
  */
+
+var climbStairs = function (n) {
+  if (n === 0) return 1;
+  if (n === 1) return 1;
+  let n_1 = 1,
+    n_2 = 1,
+    res;
+  for (let i = 2; i <= n; i++) {
+    res = n_1 + n_2;
+    n_1 = n_2;
+    n_2 = res;
+  }
+  return res;
+};
+
 var climbStairs = function (n) {
   let n_1 = 0,
     n_2 = 1,
