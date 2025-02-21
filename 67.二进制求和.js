@@ -55,3 +55,4 @@ var addBinary = function (a, b) {
   }
   return carry ? "1" + result : result;
 };
+
