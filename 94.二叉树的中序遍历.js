@@ -34,16 +34,29 @@ let node = new TreeNode();
  * @return {number[]}
  */
 var inorderTraversal = function (root) {
-  // let res=[],
-  // val=res.val;
-  // if(root.left){
-  //     res.push(inorderTraversal(root.left))
-  // }
-  // res.push(root.val)
-  // if(root.right){
-  //     res.push(inorderTraversal(root.right))
-  // }
-  // return res;
+  let res = [];
+  if (!root) return res;
+  function deep(node) {
+    if (node.left) {
+      deep(node.left);
+    }
+    res.push(node.val);
+    if (node.right) {
+      deep(node.right);
+    }
+  }
+  deep(root);
+  return res;
 };
 
-console.log(inorderTraversal(node));
+var inorderTraversal = function (root) {
+  let res = [];
+  function deep(node) {
+    if (!node) return;
+    deep(node.left);
+    res.push(node.val);
+    deep(node.right);
+  }
+  deep(root);
+  return res;
+};
