@@ -21,11 +21,11 @@
 /**
  * Definition for a binary tree node.
  */
-function TreeNode(val, left, right) {
-  this.val = val === undefined ? 0 : val;
-  this.left = left === undefined ? null : left;
-  this.right = right === undefined ? null : right;
-}
+// function TreeNode(val, left, right) {
+//   this.val = val === undefined ? 0 : val;
+//   this.left = left === undefined ? null : left;
+//   this.right = right === undefined ? null : right;
+// }
 
 let node = new TreeNode();
 
@@ -58,5 +58,21 @@ var inorderTraversal = function (root) {
     deep(node.right);
   }
   deep(root);
+  return res;
+};
+
+//维护了一个栈
+var inorderTraversal = function (root) {
+  let res = [],
+    stk = [];
+  while (root || stk.length) {
+    while (root) {
+      stk.push(root);
+      root = root.left;
+    }
+    root = stk.pop();
+    res.push(root.val);
+    root = node.right;
+  }
   return res;
 };
